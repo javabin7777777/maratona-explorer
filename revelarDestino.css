@@ -12,7 +12,7 @@ body {
 #container{ 
    width:80%;  /* 80% da largura da página*/
    max-width:400px; /*  largura máxima da caixa <div>*/
-   margin:100px auto; /* top rigth | bottom left */  
+   margin:35px auto; /* top rigth | bottom left */  
 }
 
 h1{
@@ -57,13 +57,21 @@ button:hover{ /* pseudo class ou sudo class ou sudo elements */
 }
 
 #resposta{
+    font-size: 28px;
     margin-top: 30px;
     transition: opacity 5s; /* o conteúdo do elemento <h3> demora 5s para desaparecer na tela(opacity zero setada no javascript) */
 }
 
 #resposta div{
-    font-size: 16px;
+    font-size: 28px;
     font-weight: 500;   
     opacity: 0.8;
     margin-bottom: 10px; ;
+}
+
+#cronometro{
+    font-size: 60px;
+    font-weight: 900;
+    margin:1px auto 10px auto;
+    transition: opacity 2s;
 }
