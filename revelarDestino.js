@@ -17,11 +17,11 @@ const respostas=["sim.","não.","provávelmente.","pode ser.","Certeza!",
 "Sim.",
 "Concentre-se e pergunte novamente.",
 "Sinais apontam que sim."]   // array com as respostas possíveis
-const elementH3=document.querySelector("#resposta")   
-const campoTexto=document.querySelector("#input")
-const elementDiv=document.querySelector("#cronometro")
+const elementH3=document.querySelector("#resposta") // o conteúdo do elemento <h3> será a resposta mais a pergunta  
+const campoTexto=document.querySelector("#input") // aqui fica a pergunta inserida pelo usuário
+const elementDiv=document.querySelector("#cronometro") // aqui fica o cronômetro de contagem decrescente
 
-function perguntar(){   // esta função é executada ao clicar no botão "fazer pergunta"            
+function perguntar(){   // esta função é executada ao clicar no botão "fazer pergunta",e imprimi na tela a resposta e a pergunta            
     elementH3.style.opacity = 1
     if(campoTexto.value == ""){  // emite um alerta na tela caso o campo pergunta esteja vazio
         window.alert("Digite algo no campo pergunta")
@@ -29,15 +29,15 @@ function perguntar(){   // esta função é executada ao clicar no botão "fazer
     }
     if(campoTexto !=""){
         cronometro()
-        setTimeout(function(){                     
-            elementH3.innerHTML = "<div>"+campoTexto.value+"</div>" + respostas[Math.floor(Math.random()*respostas.length)]
+        setTimeout(function(){   // é executada após o término do cronômetro                  
+            elementH3.innerHTML = "<div>"+campoTexto.value+"</div>" + respostas[Math.floor(Math.random()*respostas.length)] // insere a resposta e a pergunta no elemento <h3>
             campoTexto.value="" 
             campoTexto.setAttribute("disabled",true)
             button.setAttribute("disabled",true)          
             setTimeout(function(){ // depois de 5000ms coloca a opacidade do elemento <h3> para zero
                 elementH3.style.opacity = 0              
             },5000)
-            setInterval(function(){  // executa a função no intervalo de 8000ms
+            setInterval(function(){// executa a função no intervalo de 8000ms,liberando os elementos campotexto e button,e,apaga o contéudo do elemento <h3>(resposta e a pergunta)
                 campoTexto.removeAttribute("disabled") 
                 button.removeAttribute("disabled") 
                 elementH3.innerHTML="" 
@@ -51,11 +51,11 @@ function perguntar(){   // esta função é executada ao clicar no botão "fazer
 function cronometro(){   
     var tempo=5
     elementDiv.style.opacity=1
-    var id=setInterval(function(){         
+    var id=setInterval(function(){  // faz a contagem decrescente do cronômetro       
             elementDiv.innerHTML = tempo
             --tempo
-            if(tempo==0){
-                clearInterval(id)
+            if(tempo==0){ // para a função setInterval e cronômetro desaparece da tela 
+                clearInterval(id) 
                 elementDiv.style.opacity=0
             }
     },1000)    
