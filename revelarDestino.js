@@ -48,7 +48,9 @@ function perguntar(){   // esta função é executada ao clicar no botão "fazer
     } 
 }
 
-function cronometro(){   
+function cronometro(){
+     campoTexto.setAttribute("disabled",true)
+     button.setAttribute("disabled",true)
     var tempo=5
     elementDiv.style.opacity=1
     var id=setInterval(function(){  // faz a contagem decrescente do cronômetro       
@@ -58,6 +60,8 @@ function cronometro(){
                 clearInterval(id) 
                 elementDiv.style.opacity=0
             }
-    },1000)    
+    },1000)
+    campoTexto.removeAttribute("disabled") 
+    button.removeAttribute("disabled") 
 }
 
